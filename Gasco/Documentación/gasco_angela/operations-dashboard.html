@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operaciones 4.0 - Dashboard</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #f8fafc;
+    }
+    
+    .dashboard-card {
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .dashboard-card-header {
+      border-top: 4px solid;
+      border-radius: 0.5rem;
+    }
+    
+    .dashboard-card-header.blue { border-color: #3b82f6; }
+    .dashboard-card-header.emerald { border-color: #10b981; }
+    .dashboard-card-header.amber { border-color: #f59e0b; }
+    .dashboard-card-header.indigo { border-color: #6366f1; }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .badge-blue { background-color: #dbeafe; color: #1e40af; }
+    .badge-red { background-color: #fee2e2; color: #b91c1c; }
+    .badge-emerald { background-color: #d1fae5; color: #065f46; }
+    .badge-amber { background-color: #fef3c7; color: #92400e; }
+    
+    .tab-active {
+      border-bottom: 2px solid #3b82f6;
+      color: #3b82f6;
+      font-weight: 500;
+    }
+    
+    .tab-panel {
+      display: none;
+    }
+    
+    .tab-panel.active {
+      display: block;
+    }
+    
+    .progress-bar {
+      height: 8px;
+      border-radius: 4px;
+      background-color: #e5e7eb;
+      overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+    }
+    
+    .progress-bar-fill.emerald { background-color: #10b981; }
+    .progress-bar-fill.amber { background-color: #f59e0b; }
+    .progress-bar-fill.red { background-color: #ef4444; }
+    
+    .metric {
+      font-size: 1.875rem;
+      font-weight: 700;
+      line-height: 2.25rem;
+    }
+    
+    .icon-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.375rem;
+    }
+    
+    .icon-blue { background-color: #dbeafe; color: #3b82f6; }
+    .icon-emerald { background-color: #d1fae5; color: #10b981; }
+    .icon-amber { background-color: #fef3c7; color: #f59e0b; }
+    .icon-indigo { background-color: #e0e7ff; color: #6366f1; }
+  </style>
+</head>
+<body class="p-6">
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-6">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-900">Operaciones 4.0 - Dashboard</h1>
+      <p class="text-gray-500">Visualización de datos operacionales en tiempo real</p>
+    </div>
+    <div class="flex items-center space-x-3">
+      <select id="timeRange" class="border border-gray-300 rounded-md px-3 py-2 bg-white text-sm w-36">
+        <option value="24h">Últimas 24h</option>
+        <option value="7d" selected>Últimos 7 días</option>
+        <option value="30d">Últimos 30 días</option>
+        <option value="90d">Últimos 90 días</option>
+      </select>
+      <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-md text-sm">
+        Exportar Datos
+      </button>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="dashboard-card mb-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <p class="text-gray-600 mb-1">Planta</p>
+        <select id="plantFilter" class="w-full border border-gray-300 rounded-md px-3 py-2 bg-white">
+          <option value="all">Todas las Plantas</option>
+          <option value="maipu">Maipú</option>
+          <option value="mejillones">Mejillones</option>
+          <option value="belloto">Belloto</option>
+          <option value="talca">Talca</option>
+          <option value="biobio">Biobio</option>
+          <option value="osorno">Osorno</option>
+          <option value="coyhaique">Coyhaique</option>
+        </select>
+      </div>
+      <div>
+        <p class="text-gray-600 mb-1">Subsistema</p>
+        <select id="subsystemFilter" class="w-full border border-gray-300 rounded-md px-3 py-2 bg-white">
+          <option value="all">Todos</option>
+          <option value="carrusel">Carrusel</option>
+          <option value="llenado">Llenado</option>
+          <option value="clasificacion">Clasificación</option>
+        </select>
+      </div>
+      <div>
+        <p class="text-gray-600 mb-1">Tipo de Material</p>
+        <select id="materialFilter" class="w-full border border-gray-300 rounded-md px-3 py-2 bg-white">
+          <option value="all">Todos</option>
+          <option value="cilindros">Cilindros</option>
+          <option value="baterias">Baterías</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="mt-6 mb-4">
+    <ul class="flex border-b">
+      <li class="mr-1">
+        <a href="#" class="tab-link tab-active inline-block px-4 py-2" data-tab="inventory">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Inventario
+        </a>
+      </li>
+      <li class="mr-1">
+        <a href="#" class="tab-link inline-block px-4 py-2" data-tab="kpis">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="9" x2="9" y2="15"></line>
+            <line x1="15" y1="9" x2="15" y2="15"></line>
+            <line x1="15" y1="9" x2="15" y2="15"></line>
+          </svg>
+          KPIs de Rendimiento
+        </a>
+      </li>
+      <li class="mr-1">
+        <a href="#" class="tab-link inline-block px-4 py-2" data-tab="projections">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+          Proyecciones
+        </a>
+      </li>
+      <li class="mr-1">
+        <a href="#" class="tab-link inline-block px-4 py-2" data-tab="movements">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          Movimientos
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Tab Content -->
+  <div class="tab-content">
+    <!-- Inventory Tab -->
+    <div id="inventory" class="tab-panel active">
+      <!-- KPI Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <!-- Total Cylinders -->
+        <div class="dashboard-card dashboard-card-header blue">
+          <div class="flex items-start space-x-4">
+            <div class="icon-wrapper icon-blue">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v8"></path>
+                <path d="M8 12h8"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-gray-500">Total Cilindros</p>
+              <p class="metric">8,436</p>
+              <div class="mt-2">
+                <span class="badge badge-blue">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="19" x2="12" y2="5"></line>
+                    <polyline points="5 12 12 5 19 12"></polyline>
+                  </svg>
+                  +2.5% vs anterior
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Last Update -->
+        <div class="dashboard-card dashboard-card-header emerald">
+          <div class="flex items-start space-x-4">
+            <div class="icon-wrapper icon-emerald">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div>
+              <p class="text-gray-500">Última Actualización</p>
+              <p class="metric">4h atrás</p>
+              <p class="text-gray-500 mt-2">28 Feb, 08:45 AM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Physical vs SAP -->
+        <div class="dashboard-card dashboard-card-header amber">
+          <div class="flex items-start space-x-4">
+            <div class="icon-wrapper icon-amber">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+                <path d="M12 7v5"></path>
+                <path d="M16 13l-4 4"></path>
+                <path d="M8 13l4 4"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-gray-500">Diferencia Físico vs SAP</p>
+              <p class="metric">-2.1%</p>
+              <div class="mt-2">
+                <span class="badge badge-amber">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                  </svg>
+                  Mejora vs mes anterior
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Plants -->
+        <div class="dashboard-card dashboard-card-header indigo">
+          <div class="flex items-start space-x-4">
+            <div class="icon-wrapper icon-indigo">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <div>
+              <p class="text-gray-500">Plantas Activas</p>
+              <p class="metric">7</p>
+              <p class="text-gray-500 mt-2">100% Datos Sincronizados</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row 1 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <!-- Inventory Comparison Chart -->
+        <div class="dashboard-card">
+          <h2 class="text-lg font-medium text-gray-900 mb-4">Comparativo Inventario Físico vs SAP</h2>
+          <div style="height: 320px;">
+            <canvas id="inventoryChart"></canvas>
+          </div>
+        </div>
+        
+        <!-- Cylinder Status Chart -->
+        <div class="dashboard-card">
+          <h2 class="text-lg font-medium text-gray-900 mb-4">Estado de Cilindros</h2>
+          <div style="height: 320px;">
+            <canvas id="cylinderStatusChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row 2 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Plant Distribution Chart -->
+        <div class="dashboard-card">
+          <h2 class="text-lg font-medium text-gray-900 mb-4">Distribución por Planta</h2>
+          <div style="height: 320px;">
+            <canvas id="plantDistributionChart"></canvas>
+          </div>
+        </div>
+        
+        <!-- Plant Stock Details Table -->
+        <div class="dashboard-card">
+          <h2 class="text-lg font-medium text-gray-900 mb-4">Detalle de Stock por Planta</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead>
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Planta</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock Real</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock SAP</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Diferencia</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">% del Total</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">Maipú</td>
+                  <td class="px-6 py-4 whitespace-nowrap">1,045</td>
+                  <td class="px-6 py-4 whitespace-nowrap">1,024</td>
+                  <td class="px-6 py-4 whitespace-nowrap"><span class="badge badge-red">21</span></td>
+                  <td class="px-6 py-4 whitespace-nowrap">32%</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">Mejillones</td>
+                  <td class="px-6 py-4 whitespace-nowrap">756</td>
+                  <td class="px-6 py-4 whitespace-nowrap">741</td>
+                  <td class="px-6 py-4 whitespace-nowrap"><span class="badge badge-red">15</span></td>
+                  <td class="px-6 py-4 whitespace-nowrap">23%</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">Belloto</td>
+                  <td class="px-6 py-4 whitespace-nowrap">541</td>
+                  <td class="px-6 py-4 whitespace-nowrap">530</td>
+                  <td class="px-6 py-4 whitespace-nowrap"><span class="badge badge-red">11</span></td>
+                  <td class="px-6 py-4 whitespace-nowrap">17%</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">Talca</td>
+                  <td class="px-6 py-4 whitespace-nowrap">452</td>
+                  <td class="px-6 py-4 whitespace-nowrap">443</td>
+                  <td class="px-6 py-4 whitespace-nowrap"><span class="badge badge-red">9</span></td>
+                  <td class="px-6 py-4 whitespace-nowrap">14%</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">Biobio</td>
+                  <td class="px-6 py-4 whitespace-nowrap">267</td>
+                  <td class="px-6 py-4 whitespace-nowrap">262</td>
+                  <td class="px-6 py-4 whitespace-nowrap"><span class="badge badge-red">5</span></td>
+                  <td class="px-6 py-4 whitespace-nowrap">8%</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">Osorno</td>
+                  <td class="px-6 py-4 whitespace-nowrap">187</td>
+                  <td class="px-6 py-4 whitespace-nowrap">183</td>
+                  <td class="px-6 py-4 whitespace-nowrap"><span class="badge badge-red">4</span></td>
+                  <td class="px-6 py-4 whitespace-nowrap">6%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPIs Tab -->
+    <div id="kpis" class="tab-panel">
+      <!-- KPI Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <!-- OEE -->
+        <div class="dashboard-card">
+          <p class="text-gray-500">OEE</p>
+          <p class="metric">87.5%</p>
+          <div class="flex items-center mt-2">
+            <span class="badge badge-emerald mr-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
+              2.5%
+            </span>
+            <p class="text-gray-500">Eficiencia global del equipo</p>
+          </div>
+        </div>
+
+        <!-- Carousel Performance -->
+        <div class="dashboard-card">
+          <p class="text-gray-500">Rendimiento de Carrusel</p>
+          <p class="metric">94.2%</p>
+          <div class="flex items-center mt-2">
+            <span class="badge badge-emerald mr-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
+              1.3%
+            </span>
+            <p class="text-gray-500">Cilindros por hora</p>
+          </div>
+        </div>
+
+        <!-- Availability -->
+        <div class="dashboard-card">
+          <p class="text-gray-500">Disponibilidad</p>
+          <p class="metric">92.1%</p>
+          <div class="flex items-center mt-2">
+            <span class="badge badge-red mr-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+              -0.8%
+            </span>
+            <p class="text-gray-500">Tiempo operativo</p>
+          </div>
+        </div>
+
+        <!-- Autonomy -->
+        <div class="dashboard-card">
+          <p class="text-gray-500">Autonomía</p>
+          <p class="metric">4.2 días</p>
+          <div class="flex items-center mt-2">
+            <span class="badge badge-emerald mr-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
+              0.5
+            </span>
+            <p class="text-gray-500">Stock disponible</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <!-- Process Efficiency Chart -->
+        <div class="dashboard-card">
+          <h2 class="text-lg font-medium text-gray-900 mb-4">Eficiencia del Proceso de Envasado (%)</h2>
+          <div style="height: 320px;">
+            <canvas id="processEfficiencyChart"></canvas>
+          </div>
+        </div>
+        
+        <!-- Carousel Performance Chart -->
+        <div class="dashboard-card">
+          <h2 class="text-lg font-medium text-gray-900 mb-4">Rendimiento del Carrusel (cilindros/hora)</h2>
+          <div style="height: 320px;">
+            <canvas id="carouselPerformanceChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Maintenance Stops Table -->
+      <div class="dashboard-card">
+        <h2 class="text-lg font-medium text-gray-900 mb-4">Detenciones por Mantenimiento</h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Planta</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Motivo</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duración</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Impacto</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Maipú</td>
+                <td class="px-6 py-4 whitespace-nowrap">Mantenimiento Preventivo</td>
+                <td class="px-6 py-4 whitespace-nowrap">2h 15m</td>
+                <td class="px-6 py-4 whitespace-nowrap">Bajo</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span class="badge badge-emerald">Completado</span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Belloto</td>
+                <td class="px-6 py-4 whitespace-nowrap">Falla Sistema Clasificación</td>
+                <td class="px-6 py-4 whitespace-nowrap">4h 30m</td>
+                <td class="px-6 py-4 whitespace-nowrap">Medio</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span class="badge badge-emerald">Completado</span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Talca</td>
+                <td class="px-6 py-4 whitespace-nowrap">Calibración Sensores</td>
+                <td class="px-6 py-4 whitespace-nowrap">1h 45m</td>
+                <td class="px-6 py-4 whitespace-nowrap">Bajo</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span class="badge badge-amber">En Proceso</span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Mejillones</td>
+                <td class="px-6 py

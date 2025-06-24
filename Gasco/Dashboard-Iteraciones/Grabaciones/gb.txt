@@ -1,0 +1,121 @@
+calcular un total. Victor, si lo ponemos proporcional en la masa total en el sentido de que, oye, yo tengo de los 2700 toneladas, tengo 2200 que son de propano, por endo ese equivale a los 75%. Y los 25 restantes, las componentes propano, mezcla y butano, una cosa así. Sí, también podría ser un porcentaje de distribución del producto, me parecería.
+Sí, de productos. Y ese dibujito del estanque está bonito, pero cuando estemos dentro de una planta en este nivel, como que no veo que nos está aplicando, porque en realidad está... estáis proyectando toneladas nomás, así que sí, estoy de acuerdo, o es un gráfico de barra con las toneladas solamente, o una torta.
+una torta con las toneladas y el porcentaje que significa el cada producto respecto al total. Ok, entonces sería un gráfico donde ustedes pudieran ver las toneladas. eh más el si me corrigen chicos que otro más no principalmente yo creo que conviene ir un gráfico de torta con los las distribuciones porcentuales de cómo se reparten los productos
+Y al lado del porcentaje, este 75% corresponde a 2.250 toneladas, y así sucesivamente, ¿sí? Ok. Porque de esa forma, cualquiera puede mirar y decir, ah, perfecto, predomina el propano ECC y a tales proporciones, y más encima tengo tanto la proporcionalidad como los…
+los totales y la referencia siempre contra los dos mil setecientos dieciocho, digamos.
+Es el cien por ciento.
+Hola volví, me disculpo que apenas se me fue el internet con todos ustedes los deje ahí y yo hablando
+Muchas gracias a todos, disculpen. Presentando. No sé qué tan inestable sigue ahí. Ah, ok, o sea que estás con, ok, solo estás para audio, ok. Ok, listo.
+Y quería consultarles, creo que en diseños anteriores, habíamos, les habíamos propuesto este gráfico donde estaba como Es el valor en tonelaje y el porcentaje. Lo quieren así o con el de torta, como menciona Shefai.
+A ver, yo creo que si es contra el 100% más, porque aquí no sé si lo están, el porcentaje es sobre qué. Ahora, si queremos ver la distribución de producto. dentro de esa gran torta, de la totalidad de la masa de gas, yo creo, opino que mejor una de torta. Ok.
+No sé qué opina ahí Víctor y Eri. Sí, bueno, estamos mirando el cuadro de la derecha que están mostrando ahora, ¿cierto? Donde están los 2.198, eso es lo que estamos mirando, porque el otro está... son los subsistemas, ese es el número, ese gráfico, claro, o puede ser el de más a la derecha.
+Es el que estamos mirando, porque estamos discutiendo a brusco. Sí, es correcto. Una opción es esta, ¿cierto?, de ver el total y ver lo que... lo que hay en toneladas, y eso poder colocarle un porcentaje o, como dice Chifay, un gráfico de torta a mí los gráficos de torta como que no me gustan mucho, así que...
+Si se puede proponer algo que se vea bonito visualmente, podemos tomarlo también. Porque aparezcan las toneladas y el porcentaje relativo... de cada producto. Ok. Bueno, entonces volvemos a la página anterior y aquí lo comento.
+Bueno, listo.
+Este detalle también de diferencias, no sé si lo quieren visualizar así en forma de tabla o un gráfico le vendría mejor.
+Tiene que ser de tabla, porque la proporcionalidad que puede haber entre un producto y otro es muy grande, entonces en el gráfico no se va a ver.
+Bueno, con esto tendríamos la vista para la materia prima, se la voy a colocar acá así para que la puedan ver entera en caso de que surjan más comentarios.
+Ok, entonces ahora pasamos al resumen de cilindros.
+Para el resumen de cilindro, tenemos aquí en esta primera parte los dos resúmenes. Esta de cilindros y la otra es la diferencia de toque CGP. Si quieren comenzamos con este primero.
+Aquí tenemos la masa total y las categorías de lleno, espacio, manutención, competencia, con su valor esencial y los porcentajes. Para el caso de mantención y competencia, también tenemos un link que es ver el detalle que este lo va a redireccionar al despliegue de…
+de las respectivas tablas.
+En competencia, ¿colocaste como ejemplo tres filas o va a depender lo que esté parametrizado?
+En la tabla de competencia que mostró este. Bueno, esas tablas son las que ya estaban, déjame ver, las que ya había dejado Ángel. Ah, marcas, ya, o sea, si hay 10 marcas, 11, 8, van a aparecer las que correspondan, ya. Ok.
+No sé si a nivel de visualización les parece bien o prefieran algunos cambios.
+Por lo menos yo veo la información que deberíamos ver, que son la masa total, la cantidad de cilindros por categoría y el porcentaje que pesa cada cilindro. Cada una de ellas. Yo por lo menos estoy conforme con ese dato de lo que se está mostrando.
+Aquí los demás chicos.
+Yo no tengo comentarios.
+Ok, bueno, la siguiente tarjeta es la diferencia de stock SGP vs. SAC, y aquí tenemos dos categorías, el detalle de llenos y vacíos. aquí tengo la tarjeta para el SGP, el SAP y la diferencia
+Igual un link de ver detalle que lo va a redireccionar al declase de las tablas.
+Ya, me parece bien la tabla que te muestra el formato, ¿cierto? Está bien, que eso es lo que tenemos que lograr. Solamente una acotación que no sé si los títulos de la columna están bien o en un ejemplo, pero ahí debería decir Genos SGP y Genos SAP, y la diferencia entre ambos.
+Ok. De esta tabla, Víctor. Claro. Esa diferencia de llenos debiera ser llenos SGP.
+y la segunda lleno ZAP
+Indiferencia.
+Ok, perfecto. No sé si otro comentario respecto a cómo lo estamos reflejando visualmente. Esa tabla que acabamos de modificar tendría que ver con el primer VerDetalle, con el de arriba, ¿cierto? Después hay un VerDetalle que está debajito, el de los menos 500
+Ese ver detalle de ahí, debiera ser una tabla similar a la que acabamos de corregir, pero donde en vez de hablar de llenos SGP, vamos a hablar de vacíos SGP, vacíos SAP. y diferencia ok lo mismo pero vacío claro
+Bueno, y luego tenemos el stock inicial de cilindros por subsistema. Como que aquí se movió, disculpen que acá se movió un poco la tarjeta. De forma, la tarjeta tiene, por ejemplo, muestra el nombre del subsistema, el valor en SILT, las categorías de llenos, mantención, vacía y competencia.
+con sus valores en sil o toneladas según el switch y sus porcentajes. Después hay otra pequeña tarjeta donde muestra la masa operativa. la más óptima y la diferencia.
+Sí, esto está igual como lo venimos viendo hace rato, solo comentar que esos porcentajes, esos cuatro porcentajes deberán sumar 100%.
+Sí, conocerlo fue información así, pero igual lo voy a contar.
+No sé si tienen más comentarios.
+No.
+Bueno, y esta misma tarjeta sería para el resto de los subsistemas.
+Bueno y aquí tenemos el switch para ver los valores en lugar de sil, verlos en toneladas.
+Perfecto.
+Y aquí más abajo tenemos el resumen por clasificaciones de unidades, donde es una tabla también.
+Ya, lo sumamos por categorías en realidad Llenos por formato
+¿Por qué hay números negativos, veo porcentaje, entendería que son...
+Y creo que esto solo fue como datos para llenar la tabla y mostrarles la tabla a nivel visual.
+No sé si el título también está correcto.
+le colocaría resumos por categorías
+Bueno, eso es en cuanto al resumen de cilindros y luego tenemos la vista de resumen por masas. Aquí, en la parte de arriba, tenemos el resumen de cilindros operativos respecto a la masa óptica. Aquí tenemos el total de cilindros operativos, el del óptimo y la diferencia.
+Ya, perfecto.
+Y después aquí abajo en esta tarjeta tenemos dos tablas, una es el resumen online total por subsistemas. Y la otra es el resumen de masa por cilindros.
+Y no sé si prefieren ver las dos tablas así o con taps y poder moverse.
+a la respectiva tabla.
+Lo de arriba, el sentido operativo, el óptimo, la diferencia, ya está bien, es el gran total. Después abajo colocaría el resumen de masa por cilindros, el de la derecha. Ah, ok. Lo contrario. Estaría debajo, claro, porque ahí va el detalle por cilindro, ¿cierto? Y ese resumen online...
+Esa tabla de resumen la bajaría como porque abajo están hablando también de online. Entonces como que arriba hablemos de masa operativa y óptimo. ¿cierto? Con la tabla de la derecha y abajo hablemos de temas online que no se nos mezclen, ahora no sé por qué hay cinco tarjetas en los demás
+la ultima seria el total Tendrán que llamarse así, llenes vacíos de nutrición competente, masa total, sí.
+Como te digo, creo que esas tres reglones se mezclaron, entonces creo que el primero de arriba está asociado a la tabla de la derecha del segundo reglón y la información de abajo está asociada a la tabla de la izquierda del segundo reglón. Hay que como armarlo bonito para que todo esto se vea...
+se vea bien, quizás lo de arriba, quizás lo de arriba, el primer reglón quizás lo podés, en vez de tener las tres tarjetas horizontales las puedes tener verticales y al lado colocas la tabla de masas. Ok, el stock inicial es la tabla de masas y el resumen de online es con esta tarjeta de stock online.
+Claro, exacto.
+Ahora, esa tabla de resumen online debiera ser igual a lo que estamos mirando abajo. Quizás habría que aperturarlo por formato para que valga la pena, porque si no va a ser mostrar uno en una tabla y lo otro con tarjetas. Si te fijás son iguales esas dos informaciones.
+Sí. Me repite, Victor, disculpa.
+El primer reglón, déjalo vertical y no horizontal, y le colocas al lado la tabla resumen de masa de cilindro. Ok, perfecto. Después, la tabla del segundo reglón de la izquierda es lo mismo que tienes en las tarjetas del tercer reglón. Ok. Es lo mismo pero presentado de distintas formas nomás. Sí, de hecho es cierto, es igual. Claro, entonces...
+Lo único que tiene más información abajo es que agregaste las toneladas. Ok, pero ¿necesitan ver esas toneladas o con sólo el valor? ¿Ese les basta? A mí, en particular, me gusta el tercer reglón, como está presentado, y quizás la tabla que está arriba de la izquierda.
+esa la transformaría pero a formato por formato de cilindro y ahí como que creo que podríamos tener la información completa Ok, ¿sería prácticamente transformar esta tabla en tarjetas? No, es que comemos el tercer reglón, que tiene tarjetas. Dejemos tal cual, pero la tabla que va a ir debajito de esas tarjetas, que están las 5, hacer una tabla que muestre por formato. Estoy hablando de 5 kilos, de 11 kilos, de 15 kilos.
+y bueno y esta diferencia también que tiene un detalle
+Bueno, no sé quién es y dejó la tabla.
+Bueno, pero en general, esas serían las tres vistas.
+No sé si tienen más comentarios o sugerencias.
+No, creo que mostramos el general y mostramos la apertura por formato en tema de masa, y en el tema online En la otra tabla hay que abrir esa tabla, abrirla por formato que yo creo que quedamos ok.
+Y con respecto a los colores, perdón, dime Víctor. Sí, ahí lo mismo que dice 10.30, que es el número... Ok, deben ser enteros. Enteros, correcto. Sobre todo si son cilindros.
+Y respecto a los colores, ¿qué les parece?
+Hecho de menos más tema visual, que sea más atractivo. ¿El qué? Creo que no soy el adecuado para eso, pero...
+Prefiero ahí que ustedes lo puedan proponer y un par de ejemplos que uno pueda elegir. Pero las tablas, de hecho, son como las más débiles, si tú te fijás. las tablas son las que están menos en los gráficos, las tarjetas como que se ven más ordenaditas, más bonitas pero las tablas son así, como casi sacarlas del Excel y pegarlas, entonces eso hay que trabajarla ok
+Sí, esta fue de hecho la versión inicial y como les mencionó Erick, ya estamos trabajando en diferentes propuestas, pero sí queríamos como mostrarle estos, estas... como para que ustedes notieran la validación principal. Luego, bueno, estaremos trabajando en más propuestas.
+No sé, Eric, si quieres comentar algo adicional.
+vale vale pues yo tengo una inquietud hay que hacerles es el nivel de interacción que van a necesitar
+pensando qué tipo de análisis les sirven dentro de lo que se vaya a visualizar. En las versiones anteriores de lo que estuve mirando se les propusieron indicadores de crecimiento, caída, de baja, entonces no sé si tienen algunos intereses puntuales respecto a eso para retomarlos y ya dejarlos plasmados dentro de lo que va a ser la construcción para no dejarlos detrás dentro del proceso de la construcción
+Y se entiende, Manuel, lo que tú comentas, yo creo que ahí tengo una opinión, ahí no sé si Víctor me corrige, desgraciadamente no está Isaac. de la conversa que hemos tenido con el gerente de del área, Cristóbal Cifuente, él siempre focaliza mucho el tema del stop.
+y él dice a mí él digamos al nivel de la gerencia dice quiero saber cuánto tengo dónde tengo déficit o dónde tengo entre comillas eh alerta de quiebre de stock. Correcto. ¿Y cómo va con mi producción? Y la producción obviamente es otra línea que está por el lado de SQP.
+Entonces, lo que tú comentas está indicado en eso, digamos. Por eso las iteraciones de Víctor y nosotros, como te iremos representando, siempre es importante saber cuánto tenemos. ¿Dónde lo tenemos? ¿Qué es la ubicación? ¿Cuál es? Y el nivel de ocupación es súper importante también porque es un, es un, es una métrica más bien, eh, de indicador que absoluto. O sea, si alguien le dice, no, tengo cuatro mil toneladas.
+puede ser mucho o poco, pero si le decimos no, tenemos el 80% de ocupación, el gallo va a decir oye sí, bien, entonces yo creo que todos estos indicadores tienen que dar vueltas sobre esos conceptos.
+y listo ahí entonces dado eso también van a necesitar un panel de alertas
+por lo menos que hayan sí pero después sí después efectivamente con nosotros este proyecto ya es la segunda oportunidad en segunda ocasión que hacemos estos paneles para eso está operación 4.0 está la segunda deriva esperamos y entre la primera derivada o las operaciones 4.0, no es que esté malo, sino es un tema más bien de base de cómo se proporcionan los datos. Los indicadores, como ya lo comentaba Víctor e Isa.
+estamos llegando a los indicadores muy parecidos, lo que cambia es cómo yo extraigo la data para procesarla. Entonces, ¿por qué hago ese comentario? Efectivamente, una vez estabilizado y mejorado los indicadores, no sólo en forma, sino en el fondo de cómo fluyen los datos,
+muy es altamente probable que si esto se logra, nuestros siguientes objetivos son los indicadores y no lo hicimos en esta pasada porque dijimos, oye, si no soy capaz de hacer que los datos fluyan correctamente y fluidamente y que muestre bien los indicadores, general esta es como perder tiempo, digamos, ¿sí?
+Tiempo y plata. por eso hicimos este proyecto de reforzarecer el tema del manejo de los datos prácticamente creando los mismos indicadores o muy parecidos ¿Sí? No sé si entiende el foco nuestro Sí, se te entiende, claro que sí o sea entre comillas entre ya cerrando estamos netamente cegados en el stock de inventario es el cumplimiento general en este momento
+punto cero listo perfecto ya eso me aterriza un poco más en muchos alcances que tenía de agua muchísimas gracias listo, encantado
+Ahora que estamos viendo el tema de lo que acaba de comentar Chifá y respecto a lo que está viendo Cristóbal, creo que nos falta una tabla en lo que es masa óptima. No sé si puede bajar ahí Erick o Vanessa, no sé quién está manejando. Sí, Marcia.
+Ah, Marce, perdón. Sí, más óptima, creo que es aquí. La tercera. Esa, esa. Claro, porque hoy día, a nivel nacional, Claro, el gerente va a querer mirar esta tabla, o sea, este dashboard, cierto, vamos a ver los operativos, ver los requerimientos, y va a estar la apertura en la segunda tabla.
+va a estar la abertura por cada formato. Creo que debiéramos hacer una tabla. que tenga cuatro grandes tarjetas donde muestre la masa de hienos, pero por planta y formato. Otra de vacíos por planta y formato, otra tarjeta de mantención por planta y formato y lo mismo para el último de competencia.
+aunque poco gestionable, pero va a tenerlo colores por planta y formato
+¿Me los mencionas nuevamente, Víctor, por favor? Serían las mismas categorías que estábamos hablando arriba, ¿cierto? Que eran llenos, vacíos, sin intención, ¿cierto? Las mismas cuatro categorías. pero cada tarjeta tendría que estar abierta en una tabla que te muestre planta en las filas
+y formatos en las columnas. que está administrando la masa, poder ver dónde hay masa disponible.
+Y esto sería como a nivel general, porque lo podría ver en este dashboard, ver todas las plantas. Obviamente, después, cuando entremos, hagamos un doble clic en cada subsistema o en cada instalación, vamos a poder ver en más detalle. Y esta nueva tabla, Víctor, tendría que ir en este dashboard de resumen de masa.
+tendría que ir en resumen de masa, correcto. Esa tabla es una apertura nacional, ¿cierto? Por eso habla que el mismo reglón que tenía... estas tres tarjetas verticales ahora y al lado esta tabla de resumen de masa debajito deberá ir un gran resumen de estas tres categorías
+y quizás ni siquiera las cuatro porque competencias no son gestionables, pero bueno, en particular las cuatro y no las cuatro.
+Estos son los gestionables por la empresa.
+Perfecto.
+Nos citamos, chicos, si quieren agregar algo, o Erick.
+de pronto yo te haría una pregunta y pues para los dos, realmente espero
+cosas. Una duda que yo tengo es el nivel de interacción, es decir, muchas de las interacciones de S-Glossy se podrían dejar algún botón de cambio, de despliegue, podríamos manejar visualizaciones cruzadas, es decir, tener una visualización que sí, sea la tabla a nivel de detalle, pero otro que sea la torta, que sea la gráfica de análisis de tiempo, de barra, sí, donde puedas ver ese tema.
+Otra cosa que no tengo clara y que me gustaría pronto entender y es el nivel de granularidad, o bueno, más de qué tanto tenemos ese nivel de datos en perspectiva, es decir, todo va a venir de tiempo entonces ustedes van a tener la posibilidad de filtrar eso en dimensión del tiempo o no va a ser falta al llevarlos a esos niveles de desglose a nivel de segmentación es decir segmentamos por fecha segmentamos por
+no sé, operativos, bueno ese tipo de preguntas me surgen, es decir tú como usuario final qué interacciones quieres tener respecto a cada elemento, es decir no sé, ver tal vez las 10 cds, los 10 puntos de venta, los 10 puntos de acople, no sé cómo los llaman bien acá, verlos todos a la vez puede ser no necesario si lo que tengo es el foco principal de lo
+de las redes principales y tal vez un botón que me permite interactuar y ver el desglose total. Ese tipo de cosas no sé qué opinen o qué les parezca. Para yo es que lo que les mencionaba, yo estoy tomando este punto de partida pero también por debajo estoy haciendo análisis de todo lo que se ha hablado en todas las sesiones, retomando qué puntos quedaron abiertos, qué se cerró efectivamente, cuáles fueron las ideas para que no se nos quede nada por fuera y poderlo llevar a cabalidad y darles una presentación.
+final, obviamente con marca, banners, colores y todas las funcionalidades que ustedes necesiten, porque al final cabo es eso Sí, Manuel. Mira, yo voy a opinar, porque aquí el usuario es Víctor Isaac y nuestro intermediario es Eric. pero la opinión que tengo y tratando de responder un poco las dudas que tú has tirado que son súper válidos y me parece súper bien, primero la dimensión del tiempo para efecto nuestro aquí prácticamente no existe porque básicamente monitoreamos el instante
+no es como una especie de consulta histórica en el sentido de que ah quiero ver la evolución del esto en el tiempo todavía todavía no llegamos a esa fase estamos a la fase estática en el sentido de quiero ver cómo estoy quiero ver los los indicadores el velocímetro actual sin sin historial
+¿Sí? Y en cuanto a la navegación, efectivamente GASCO, dentro de las navegaciones que tenemos, están agrupados prácticamente a grandes rasgos, tres niveles. El nivel general, en donde el gerente de operaciones va a mirar y va a decir, sí, tengo 100 pesos en mi bolsillo o tengo tanto y me quedo tranquilo o no me quedo tranquilo.
+Si no queda tranquilo, es baja un nivel de los subsistemas que también estaba Marcela presentando en el sentido que tenemos como siete subsistemas que son los grandes centros de acopio. en donde él puede decir, ah, dado estas bajas, yo puedo ir a grande rasgo para saber dónde, en qué localidades tengo esta baja. Si independiente y pese a aquello, si persiste la duda, él puede profundizar en uno de los subsistemas y ahí ya apertura el centro de la copia como tal y apertura la zona, los...
+los envases, cómo están los vacíos, los llenos y demás. Eso es más o menos en la grande rango los niveles de navegación que hay de esta herramienta. Ahora. con respecto a la otra pregunta que tú hiciste con respecto a las combinatorias de las pistas yo creo que por ahora combinatorias muy complejas no lo vamos a hacer estamos haciendo presentaciones estáticas de vista me explico
+en lo que es envasado, como lo dijo Víctor, yo necesito los llenos, los vacíos y demáses y lo dejo presentado de esta forma. Es muy probable que las derivadas de la alerta y las posteriores iteraciones podríamos llegar a lo que tú dices de oye, yo voy a tener una vista y esa vista dentro de la navegación me permite combinar dimensiones, es genial, pero en esta fase por ahora...
+no. Las dimensiones que pudiéramos consultar deberían ser definidas de manera estática como preferente de vista y debería mostrar de esa forma.
+Ahora, cualquier omisión nos guardaría que he dicho, Eric es dueño del tema de los gasos, me complementa o me corrige, digamos. Lo mismo, Víctor.
+¿A cuál Erick le hablaste? ¿A Manuel o a tu Erick? No, Erick, porque si no le hubiese dicho Manuel a Erick Barrera. Se llaman Erick los dos. Sí, sí, yo ya lo rebauticé a Manuela, a él. Muy bien, me encanta.
+Ahí Erick, ¿algo adicional?
+Por el lado nuestro no, yo creo que ahí, bueno, ahí veamos para la próxima semana ya.
+Bien, Manu, ¿algo más que te haya quedado pendiente, aprovechando la sesión y a los usuarios?
+En el intercanto, si tienen dudas de algunos temas, nos manda un correo copiando a Eirik a Isaac, a Víctor, a Carlos y a mí al menos, y bueno, a Alexis si es que lo suman a todo lo que sea necesario. Interactuamos a través de correo para poder aclarar las dudas y llegar con el mejor resultado, con el mayor avance posible en la siguiente sesión.
+Gracias.
+Muchas gracias. Hasta luego.

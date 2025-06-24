@@ -1,0 +1,2 @@
+SELECT id, numero_mes, anio, mes, centro_costo, porcentaje_asignacion, ingreso_individualizado, costo_fijo, costo_variable_asignacion, costo_variable_individual, cv_asignado_ind, honorarios, tarjeta_credito_asignacion, tarjeta_credito_individual, suma_areas_no_productivas, costo_oficina, c_operativo_mensual, costo_total, beneficio_perdida, beneficio_perdida_porcentaje
+FROM soho.costos_bancarios;

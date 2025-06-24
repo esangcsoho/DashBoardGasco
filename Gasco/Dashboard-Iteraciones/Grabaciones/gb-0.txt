@@ -1,0 +1,229 @@
+Yo entendería que al menos, Erick, tenemos un momento.
+
+Hola Eric.
+
+Hola, Alexis.
+
+Hola, hola. ¿Cómo están?
+
+Bueno, aprovecho a hacerles un comentario. Igual se lo adelanté a Erick, pero más que nada para Alexis y Víctor. Ángela Marín, que es con quien estuvimos trabajando todo lo que son los Dashboard y demás. Mañana es su último día en la compañía, va a afrontar nuevos desafíos en otra compañía y es por eso que se suma Eric Zhang en su reemplazo.
+
+El día de hoy están los dos, ya que están haciendo un traspaso de conocimiento, pero más que nada como para que estén al tanto y lo empiecen a conocer a Eric y por si se quieren despedir de Ángela antes de que se… que se retire.
+
+No, perfecto. Bienvenido Eric y bueno Ángel, ahí el mejor de los para bienes en su nuevo desafío. Ojalá que ahí el traspaso sea rápido, estamos con el tiempo en contra, así que... nada y bienvenido Erick muchas gracias Erick
+
+Sí, sí. Igual uno con K y otro sin K. No sé si en la pronunciación será lo mismo o no, pero bueno, parecido. Bien. Ahí Eric, cuando vos nos digas, avanzamos. Víctor, ¿estás por ahí? Porque Isaac avisó que no se iba a poder sumar, así que estamos con Víctor.
+
+Bueno, ahí comentar que yo alcancé a mandar hoy día, igual durante la mañana, los cambios, los últimos cambios Ahí un poco, Víctor, tomando tu comentario de poder tener como una versión ya para la... las siguientes reuniones, ojalá tenerlo antes, pero con respecto a los...
+
+a lo que habíamos trabajado la semana anterior, y ahí, bueno, el objetivo es un poco de que de repente hay muchos cambios y muchos comentarios que se están realizando en la sesión y que pueden quedar algunos que no se consideró y finalmente después volvemos a iterar sobre los mismos cambios.
+
+poco que podamos revisar eso, obviamente, dadas las dinámicas que se están generando pueden ocurrir esos escenarios y eso, así que, si quieres Víctor, echamos un vistazo rápido como a lo que hicimos la semana pasada, si ves como a simple vista que se llevó algo afuera
+
+O si no, vaya a continuar. Miremos, por favor, porque lo alcancé a revisar, dos de las tres hojas, y encontré un par de detalles que… Lo puedo consultar ahora o derechamente lo corregimos si está con error. En esta vista se corrigió a la izquierda lo que es el cuadro. Ah, previo a esto, vuelvo a insistir en el punto de que estamos logrando los datos,
+
+pero el diseño en sí, a la vista, todavía como que está maldé, eso se lo transparento nuevamente para ver si pueden hacer alguna mejora. Ya, entonces, lo que estoy viendo acá es que en el cuadro de la izquierda ya logramos tener la materia prima de SGP, la materia prima de SAP, tenemos el diferencial...
+
+de SGP versus SAP, así que eso está perfecto. Y abajo tenemos la ocupación que también es el dato importante en esta vista a la izquierda. Creo que este cuadro ya está logrado. Mejoraría así los números, porque C-64 apenas se ve. Quizá ocupación total lo dejaría como título del cuadrito y agrandaría...
+
+el 64, ya les dejo ahí algún detalle. Respecto de la distribución de materia prima total por subsistema También entiendo que está logrado. Efectivamente tenemos el dato que queremos mirar. Tenemos las toneladas, tenemos la ocupación, ¿cierto? Tenemos el diferencial versus SAP y que también ahí está el dato, está importante, dato en toneladas como un porcentaje, así que también diría que está logrado.
+
+eché de menos un poquito el nominal de cada subsistema, pero creo que es como suficiente lo que ya tenemos como información. Así que también ahí les dejo a tratar de mejorar los espacios. los cuadros del diferencial están como cargados hacia la izquierda, no están centrados y ahí como que, de hecho, de menos un poco de mejor diseño a la vista.
+
+En el tercer cuadro, donde están los estanques dibujados, también ya tenemos este estanque que ya parezca un dibujito súper bonito. Ahí lo único que anoté es que debiera estar en orden, ya debiéramos tratar de tener un orden de propanos arriba, que es lo que más ocupamos.
+
+después le siguen las mezclas, por si hubiera mezcla, me refiero, en SAP hay propano SC, propano refinería, propano solo, propano... entonces juntar todos los propanos, o sea, si hay tres propanos, que aparezcan los tres propanos arriba después que aparezca la mezcla, mezcla sin nada, mezcla con refinería pero ordenarlos y al final los botan ya entonces, en el tercer cuadro poder tener ese...
+
+ese orden siempre. Además que, de por sí, el propano SC es el que tiene más toneladas. Entonces, es raro ver un propano SC arriba y después ver el propano solo abajo. Y entiendo que está ordenado por... por orden de toneladas, pero creo que a la vista siempre es mejor tener los propanos arriba, las mezclas al medio y los butano abajo.
+
+Y en el cuadro de la derecha, en el cuadro de la derecha también lo mismo, tienen que estar en el mismo orden, propanos arriba, mezclas al medio. y bútanos abajo y aparece un gealuminio que no sé de dónde salió porque eso tiene que ver con cilindro y no con materia prima.
+
+Pasamos a la siguiente. Sí, ahí donde colocaste validar la lista de productos, Ángela, considerar cómo lo vamos a mostrar. Erick, si eso cómo se va a alimentar, si es lo que está en SGPE, lo que está en SAP, porque en SAP tenemos quizás 16 productos, pero siempre ocupamos...
+
+5, 6, entonces la idea es que quizás se vayan mostrando los que hayan o físicos o en SAP, pero si hay uno que no está ni en físico ni está en SAP. no mostrarlo, porque si no, al final no le de producto y se van a ver los estanques muy chiquitos. Perfecto.
+
+¡Gracias!
+
+Erick, tómense todo el tiempo de dudas para que vayamos resolviendo, y claro, la idea es no iterar sobre los mismos temas, eso es como lo que tenemos que mejorar.
+
+Sí, ahí es. Todas esas tarjetas, cambiarlas pues habitualmente, para pues como mejoras a nivel diseño. y acá sino que cuando están en el pdf si tienen pues como una variación a como se ve realmente en la herramienta entonces
+
+Déjame, yo miro si les puedo mostrar de la herramienta.
+
+De repente a nivel de diseño...
+
+podríamos ver todas las iteraciones también y quizás como plantear como la idea de lo que ya se ha presentado porque igual hemos pasado por varias iteraciones y han ido cambiando los diseños también Quizás como para cosas que ya se han armado.
+
+Sí, exactamente. No sé por qué no me está poniendo acá el framework. ¡Gracias por ver el video!
+
+Bueno, a nivel de diseño, Víctor, sí, hemos hecho muchas variaciones desde que arrancamos. Por ejemplo, teníamos este estilo de tarjeticas. No sé si estás viendo la pantalla.
+
+Sí. Sí, sí lo veo. Y sería muy bueno como validar de pronto alguno de esos desafíos. ¿Qué te propongo, Tamara, Erick? armemos, no sé si es como un collage, pero como los diferentes tipos y eso enviárselo, dejarlo después para poder seguir avanzando con los otros cambios
+
+Y para la próxima reunión de repente si Víctor alcanza a ver algo con respecto a eso y decir ya sé que en realidad esto es lo que me parece más acorde, o esto se ve mejor, porque quizá es un mix de... de las cosas que hemos visto.
+
+Muchas gracias.
+
+¿Las mandamos ahí? Para que también las envíe como en el correo. ¿Algún comentario más, Víctor? No, y pensando en lo que hablábamos la otra vez, los títulos todavía entiendo que hay que ajustarlos. en cada palabra, pero es un tema que la otra vez me comentaste que no es difícil de hacer. Yo creo que cuando tengamos el abanico completo ya podemos ir definiendo títulos más...
+
+más corto, más preciso y más exacto respecto a lo que íbamos a mostrar. Pero son títulos que entendería que no van a dañar el diseño ni la información. Sí, exactamente. Ya. No, en esta yo creo que ahí estoy. De hecho le mandé ahí un print en el chat de lo que yo había mirado.
+
+en esta que usted lo anotó por ahí. Ok, perfecto, si hay algo, si quieren agregar. Listo, bueno, entonces en esa división de las pantallas Tenemos la otra vista, que sería el resumen de los cilindros, y pues era que quedara más clara la información referente a lo que se tenía de los cilindros.
+
+la masa total, como haciendo pues énfasis en total gasco, tenemos entonces cuantos están en llenos y su porcentaje. con la respectiva diferencia y que se evidencie que esta diferencia va a ser parte de la tarjeta de llenos. También para vacíos, mantención y competencia, de la misma manera.
+
+como incluido aquí la diferencia y la tabla que nos compartiste representada también en un grid más grande. en donde se pueda tener las tarjetas incluidas, por llenos y por mantenimiento, para poder visualizar esos datos. A nivel del stock inicial de cilindros, no cambia nada, creo que ya lo hemos dejado de esa manera.
+
+El comentario de la ocasión pasada lo único era que los porcentajes no iban con cilindro y en esa vista se ve el consumo por la clasificación de unidades. referente pues a cada uno de los formatos. Esos fueron como los cambios y esta sería como la estructura de la risa. Ya, respecto del primer cuadro arriba...
+
+creo que esas diferencias que tienes de esas de menos 200 y de menos 120 no van ya porque esas que tienes ahí deberán ser igual a las de abajo
+
+Yo eliminaría esas dos diferencias de arriba y miraría el cuadro abajo. Arriba te debiera ir más a total, esos 50.000 cilindros. y abajo las cuatro tarjetas de llenos, de vacíos y de mantención
+
+porque eso entiendo lo que querían mostrar era la diferencia versus SAP, que está abajo porque abajo tenemos el stock SGP versus SAP
+
+Y abajo tenemos las diferencias SGP vs SAP, una tarjeta de Genos, una tarjeta de SAP. y un diferencial. Esos porcentajes que están dentro de llenos tampoco van
+
+porque estamos hablando de stock en este caso, entonces ese 57%, ese 58%, ese 12% y ese 13% no van
+
+Claro, en diferencia, sí, sí, Diana. Es así, porque ese es el resultado de dividir las dos tarjetas del lado y ver cuánto pesan respecto... Y ahí mismo, viendo que se genera espacio al costado, que hay un espacio libre, yo ahí mostraría Estas diferencias por formato Les mostraré una tabla
+
+Está acomodado, ¿no? Sí, sería esta.
+
+Es que no hace diferencia por formato.
+
+Esa, viendo que hay espacio, creo que sería factible colocarla ahí y poder mirarla, hoy en el formato de 5 me faltan tantos tantos porcentajes entonces creo que esa tabla la colocaría en ese espacio disponible
+
+Serían entonces llenos y serían verdes.
+
+Entonces, ¿te cambiaría la tabla si estamos en llenos o en mantenimiento? Según la diferencia. Ah, espérame. Sí, pero antes de eso, yo no sé si a lo mejor yo me equivoqué en lo que mandé, pero… en la diferencia stock, sgp, subsub y un ítem son llenos y el otro ítem son vacíos y esos vacíos
+
+incluirían vacíos, mantención y competencia. No me equivoqué, la tabla que te mandé el otro día, ese título que tú no tienes como mantenimiento, en realidad es vacíos. Gracias.
+
+entonces al costado derecho debiéramos mostrar una tabla aperturada por formato
+
+Hay la diferencia tanto en llenos y en esos vacíos, ¿cierto? Correcto.
+
+Muchas gracias.
+
+Te voy a mandar una propuesta de cómo se ve hoy día eso, yo creo que a lo mejor se puede achicar un poco el... la cantidad de datos, pero debería mostrar algo así
+
+porque, claro, lo que tú tienes al lado está mostrando el tecloso y la diferencia, pero sin...
+
+sin separar llenos y vacíos.
+
+o mostramos el total o lo aperturamos un poquito como te mandé esa foto en el chat
+
+Deberíamos tener una columna de los formatos, quizás diferencia en llenos, diferencia en vacíos, diferencia total. Y con eso ya tenemos una tabla completa que te da la vista. ¿dónde está el error o la diferencia de cada formato a nivel nacional?
+
+Para hacerlo simple, la primera columna sería formato, la segunda sería diferencial de llenos, la otra columna diferencial de vacíos. y la cuarta columna diferencial de total.
+
+Lo que te mandé está separado de lleno de vacío, pero lo podríamos juntar para que esté en una pura... En una sola tapa. Claro.
+
+¡Ah, una tabla!
+
+Formato, diferencial de llenos, diferencial de vacíos y diferencial total. Que sean unidades de cilindros, sería cantidad de cilindros. Entonces ya tendríamos arriba la masa total, con sus categorías, cuatro categorías. Después abajo abriríamos a los diferenciales de SGP versus SAP. Ya tenemos la tarjeta.
+
+total de cilindros, el diferencial, y a la derecha tendríamos esta tabla que haría el resumen completo por formato. Y con eso ya podríamos... tener la información completa y tenía una consulta respecto a este punto porque debajo de las tablas de la derecha tenía Deglose Mantención, Deglose Competencia, ahí a la derecha
+
+pero no sé por qué no tenías el mismo de Glossy para Genos y el mismo de Glossy para... ah, por qué... ah, ya, ya, ya se busqué. Estaba hablando de las subcategorías. Sí. Sí. Sí.
+
+¿Ya? Ok, entonces entendería que tenemos esta primera cuadra de arriba, la tendríamos lista, pasemos a la otra cuadra.
+
+Y ya esa sería la otra vista que sería por el resumen de los operativos Total Gasco. saltaste, saltaste en varias. Ah, ok, en la misma visa, Alice. La de stock inicial, cilindros por subsistema y resumen por clasificación de unidades, son las dos áreas necesarias de cilindros.
+
+Claro, ahí tenemos los totales de cilindros, y en algún momento tenemos que llegar a abrir esto por formato, que supuestamente lo vamos a hacer en la siguiente... Y tenemos el resumen por clasificación de unidades.
+
+por clasificación o categoría, no unidad, y después tenemos llenos, vacíos, mantención, competencia Ese vacío es OPE, recuerden que ahora es vacío, ya eliminamos los vacíos operativos como concepto.
+
+Es vacío Solamente serían todos vacíos Sí Tendríamos los formatos, ¿cierto? Y tendríamos un total de cilindros
+
+¿Y qué es lo del lado derecho?
+
+que está como fuera del panel, eso es para visualizarlo, es un switch para poder visualizar los valores y que cambien a cilindros, de cilindros a toneladas, de toneladas a cilindros. Ya, y eso cambiaría obviamente la unidad que está escrita, ¿cierto? Sí, esto viene de acá.
+
+Estas son por categoría...
+
+Ya, ok.
+
+Ya esa sería la que es en resumen de masa total y ya cambiamos como algunos de los títulos que nos comentó Isaac.
+
+claro, debí de hacer...
+
+No sé si, quizá que lo pido así, pero como que me hace ruido tener un diferencial antes de conocer los datos, entonces como que... Me hace más sentido tenerlo a la derecha o abajo, pero como ver un diferencial antes de tener los datos base, que son los 20.463 y los 22.788, como que...
+
+No sé si es posible moverlo a la derecha, o... Sí.
+
+y después nos movemos el resumen de masa a TotalSubSystem
+
+Esta tarjeta supone que estamos mirando todavía la vista nacional, ¿cierto?
+
+Sí, todavía en la vista nacional. Entonces, ojo, que ese título es resumen de masa. Eso es lo que usted decía. ¿Pero entonces acá sería resumen por masa y ya? Resumen de masa... Pasa de cilindro. Dejalo así si quiere.
+
+¡Suscríbete y dale a like!
+
+Y las otras sítulas están bien.
+
+Mira, los títulos no me hacen ruido, pero estoy seguro que no son los mejores. Ok. Por eso yo creo que terminemos, avancemos en tener el dato, después le cambiamos el título. Si ya sabemos qué es lo que estamos mostrando, después podemos ya irnos al detalle de cuál es el título correcto.
+
+Y después el resumen inicial...
+
+Claro, hay un intento siempre de que en algún momento tengamos La cantidad de cilindros en línea, ¿cierto? Que tenemos... Creo que no lo mezclaría ese cuadro... con esta información, porque el cuadro que estamos mirando ahora tiene que ver con masa óptima entonces creo que es como otro ítem de tratar de ver
+
+y además el stock en línea hay que aperturarlo. el formato, para que sea como se llama, importante poder verlo. entonces, o lo pasa, y esto creo que habría que construirlo por categoría, son tantos cilindros que habría que tratar de verlo por categoría
+
+¿Entonces tú estarías acá en esa visa de Monsanto? Claro, quizás podría ser una... una cuarta vista o bajarlo, o sea dentro de esta misma vista pero colocarlo diferente porque es otra cosa lo que estamos mirando ¡Gracias!
+
+y además que muy agregado como para que a alguien le sirva. No sé si me explico, o sea, pero iría a decir, oye envíate cuántos llenos hay, hay 1.569. Ese dato no te sirve mucho si no la apertura es por formato.
+
+Si tenemos otra vista de esto que es línea, podríamos ampliar los conceptos. y se podrían tener como más lo mismo que al más abajo, también si se requiere visualizar más información también cabría. para que tengamos más apertura de información. bastante agregada de stock inicial y stock en línea, que nos gustaría, que es para donde estamos apuntando.
+
+te lo mandé al chat, y tiene que ver donde tú miras el stock inicial en toda una línea, en una fila horizontal Ves las cuatro categorías, las que están ahí, lleno, vacío, mantención y competencia. Pero cada cuadrito, además de mostrarte la cantidad de cilindros...
+
+te muestra las toneladas que representa entonces como para que le dé un valor a esta vista y abajo, en la fila de abajo, está el stock en línea que eso tiene que ver con los movimientos SAP, que ya es un dato que te tienen que suministrar para que se vea aquí, pero ahí yo podría ver cómo partir la mañana y cómo está el stock en línea.
+
+pero daría vuelta la información, colocaría los stocks de esta otra forma, daría vuelta la tabla
+
+Esta tabla que yo te mandé por el chat del grupo, debiera aparecer quizás como debajito del resumen de más.
+
+Hemos.
+
+¡Delicioso!
+
+Ya, y ahí entendería que todo lo que vimos ahora es de la vista nacional, donde lo primero que teníamos era la materia prima, que ese está bastante logrado, quedan cosas de maquillaje después seguimos con los cilindros, donde tenemos lo que es la masa total, separada por categoría donde están las cuatro categorías
+
+y el porcentaje de peso de cada una debajito vamos a ver el diferencial respecto a SAP un dato muy agregado, ¿cierto? que es el que tenemos SGP 15.000, el SAP 15.500 y el diferencial. Como está tan agregado, al ladito vamos a colocar esta tabla que te comenté, que tú hiciste esta línea.
+
+Por lo cual lo tendríamos aperturado por formato, lo que es una ganada porque ya tenía la vista completa de formatos a nivel nacional en tema de diferenciar. Y después de esto nos tiraríamos, como esta es la vista nacional, a mirar cada subsistema respecto de las categorías que vimos arriba.
+
+¿Cierto? Estas cuatro categorías, lleno, vacío, mantención y competencia. Sí, exacto. ¿Cierto? Que esa también está bastante lograda. siento que aún le falta o darle preponderancia al número o algo para que sea más... más amistoso a la lista. Y de ahí viene el resumen de clasificación, que también es nacional, donde
+
+el de arriba es esa tabla de ahí lo que hace es aperturar por formato la información que arriba está que arriba está, cierto, agregada por total de cilindros
+
+Y me hace sentido, porque aquí yo puedo ver los llenos que corresponden en todos los formatos, lo que hay en mantención, ¿cierto? y tengo el total de cilindro en todo Chile, aquí la mirada es nacional, así que hace sentido para tomar decisiones respecto de lo que tengo que hacer de mantención, lo que tengo que entregar en competencias, así que...
+
+Sí, me hace sentido. Y de ahí nos pasamos a la tercera vista, que tiene que ver con el resumen del cilindro operativo. ¿Cambiamos el nombre para darle la vista? Resumen de cilindros.
+
+operativos respecto de masa óptima.
+
+Respecto... Resumen de cilindros operativos respecto de masa óptima Claro, ese sería el título, y ahí lo que tendríamos serían los cilindros operativos, que están en cantidad, ¿cierto? está el requerimiento de masa óptima, los 22.000, y de ahí vendría a la derecha la diferencia, perfecto y de ahí viene una apertura por formato
+
+donde hablamos de masa y masa óptima, claro, y la diferencia de masa. Y abajo vendría este otro resumen que tiene que ver con... Y sé que no te empiezas en línea. Claro, lo que trataba de mostrar es cómo partiste en la mañana el cilindro y cómo vais al minuto que estáis mirando el Dashboard.
+
+Yo creo que ahí como que tomamos varios puntos, creo que cubrimos toda la necesidad de información
+
+por lo menos como de primera necesidad para el nivel nacional.
+
+Listo, Víctor, no sé, ¿algo más? ¿Alguien por ahí?
+
+¿No? No, bueno, está perfecto. Lo quería entonces, bueno, para finalizar. Darles como unas palabras, un profundo agradecimiento. Fue un placer trabajar con todos ustedes. Siempre me sentí súper FOMOA. confortable. A nivel técnico siempre nos dieron soporte, entonces les agradezco mucho toda la ayuda también que me brindaron.
+
+y espero que nos volvamos a ver, no sea un adiós, sino un hasta luego y de verdad muchas gracias por la oportunidad y por todo. Mucho éxito. Buenísimo. Bien. ¿Dudas, preguntas, algo que comentar?
+
+Lo que habíamos comentado antes de quizás colocar también ese tema del diseño, como esas muestras de lo que se ha ido desarrollando, a ver si hay algo que se pueda reciclar con respecto a cómo está hoy día. Y nada, hay una minuta también del tema con la última versión. Ahí si, Tamara, ustedes pueden enviarla. Ojalá antes de la próxima cita, por favor.
+
+Dale, pues por la tarde, va, en un rato te la envío. ¿Ángel? Eh, no, que yo estaba juntando como los apuntes que se hicieron en el PDF y sí, ahí tenemos claro que antes de la reunión ya, yo la reviso con Erick San. el tema de las visualizaciones como para mandar diferentes opciones, y pues, Víctor y Isaac puedan como seleccionar cuál les parece como más...
+
+bonito y acorde a los sonidos, listo, excelente, ¿alguien más algo que comentar si no? Todos liberados, les agradezco el espacio y el tiempo. Ahora por la tarde envío la minuta de lo que vimos hoy.
+
+Ya, perfecto. Muchas gracias. Gracias a ustedes. Que tengan buena tarde. Chau chau. Feliz tardes, luego.

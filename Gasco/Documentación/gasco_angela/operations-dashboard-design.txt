@@ -1,0 +1,614 @@
+import React, { useState } from "react";
+import {
+  Card,
+  Title,
+  Text,
+  Tab,
+  TabList,
+  TabGroup,
+  TabPanel,
+  TabPanels,
+  Grid,
+  Col,
+  Metric,
+  AreaChart,
+  BarChart,
+  DonutChart,
+  Legend,
+  Flex,
+  Icon,
+  Badge,
+  Select,
+  SelectItem,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
+  Divider,
+  ProgressBar
+} from "@tremor/react";
+import { 
+  ArrowUpRight, 
+  ArrowDownRight, 
+  Cylinder, 
+  BarChart3, 
+  PieChart,
+  Warehouse,
+  TrendingUp,
+  Clock,
+  Layers
+} from "lucide-react";
+
+const OperationsDashboard = () => {
+  // Example state for filters
+  const [selectedPlant, setSelectedPlant] = useState("all");
+  const [selectedSubsystem, setSelectedSubsystem] = useState("all");
+  const [timeRange, setTimeRange] = useState("7d");
+
+  // Mock data - would come from your actual data sources
+  const inventoryData = [
+    { date: "Jan 22", "Real": 380, "SAP": 393, "Variance": 13 },
+    { date: "Feb 22", "Real": 420, "SAP": 410, "Variance": -10 },
+    { date: "Mar 22", "Real": 445, "SAP": 438, "Variance": -7 },
+    { date: "Apr 22", "Real": 470, "SAP": 468, "Variance": -2 },
+    { date: "May 22", "Real": 480, "SAP": 483, "Variance": 3 },
+    { date: "Jun 22", "Real": 501, "SAP": 495, "Variance": -6 },
+  ];
+
+  const plantData = [
+    { name: "Maipú", value: 1045, percentage: 32 },
+    { name: "Mejillones", value: 756, percentage: 23 },
+    { name: "Belloto", value: 541, percentage: 17 },
+    { name: "Talca", value: 452, percentage: 14 },
+    { name: "Biobio", value: 267, percentage: 8 },
+    { name: "Osorno", value: 187, percentage: 6 },
+  ];
+
+  const cylinderStatusData = [
+    { name: "Operativos", value: 7856 },
+    { name: "En Mantenimiento", value: 452 },
+    { name: "Fallados", value: 128 },
+  ];
+
+  const kpiData = [
+    { 
+      title: "OEE", 
+      value: "87.5%", 
+      change: "2.5%", 
+      status: "increase",
+      description: "Eficiencia global del equipo" 
+    },
+    { 
+      title: "Rendimiento de Carrusel", 
+      value: "94.2%", 
+      change: "1.3%", 
+      status: "increase",
+      description: "Cilindros por hora" 
+    },
+    { 
+      title: "Disponibilidad", 
+      value: "92.1%", 
+      change: "-0.8%", 
+      status: "decrease",
+      description: "Tiempo operativo" 
+    },
+    { 
+      title: "Autonomía", 
+      value: "4.2 días", 
+      change: "0.5",
+      status: "increase", 
+      description: "Stock disponible" 
+    },
+  ];
+
+  return (
+    <div className="p-6 bg-slate-50 min-h-screen">
+      {/* Header */}
+      <Flex justifyContent="between" alignItems="center" className="mb-6">
+        <div>
+          <Title>Operaciones 4.0 - Dashboard</Title>
+          <Text>Visualización de datos operacionales en tiempo real</Text>
+        </div>
+        <Flex justifyContent="end" className="gap-2">
+          <Select value={timeRange} onValueChange={setTimeRange} className="w-36">
+            <SelectItem value="24h">Últimas 24h</SelectItem>
+            <SelectItem value="7d">Últimos 7 días</SelectItem>
+            <SelectItem value="30d">Últimos 30 días</SelectItem>
+            <SelectItem value="90d">Últimos 90 días</SelectItem>
+          </Select>
+          <Button size="sm" variant="secondary">Exportar Datos</Button>
+        </Flex>
+      </Flex>
+
+      {/* Filters */}
+      <Card className="mb-6">
+        <Flex justifyContent="between" className="gap-6">
+          <div className="w-full">
+            <Text>Planta</Text>
+            <Select value={selectedPlant} onValueChange={setSelectedPlant} className="mt-1">
+              <SelectItem value="all">Todas las Plantas</SelectItem>
+              <SelectItem value="maipu">Maipú</SelectItem>
+              <SelectItem value="mejillones">Mejillones</SelectItem>
+              <SelectItem value="belloto">Belloto</SelectItem>
+              <SelectItem value="talca">Talca</SelectItem>
+              <SelectItem value="biobio">Biobio</SelectItem>
+              <SelectItem value="osorno">Osorno</SelectItem>
+              <SelectItem value="coyhaique">Coyhaique</SelectItem>
+            </Select>
+          </div>
+          <div className="w-full">
+            <Text>Subsistema</Text>
+            <Select value={selectedSubsystem} onValueChange={setSelectedSubsystem} className="mt-1">
+              <SelectItem value="all">Todos</SelectItem>
+              <SelectItem value="carrusel">Carrusel</SelectItem>
+              <SelectItem value="llenado">Llenado</SelectItem>
+              <SelectItem value="clasificacion">Clasificación</SelectItem>
+            </Select>
+          </div>
+          <div className="w-full">
+            <Text>Tipo de Material</Text>
+            <Select className="mt-1">
+              <SelectItem value="all">Todos</SelectItem>
+              <SelectItem value="cilindros">Cilindros</SelectItem>
+              <SelectItem value="baterias">Baterías</SelectItem>
+            </Select>
+          </div>
+        </Flex>
+      </Card>
+
+      {/* Main Content Tabs */}
+      <TabGroup className="mt-6">
+        <TabList>
+          <Tab icon={Warehouse}>Inventario</Tab>
+          <Tab icon={BarChart3}>KPIs de Rendimiento</Tab>
+          <Tab icon={TrendingUp}>Proyecciones</Tab>
+          <Tab icon={Layers}>Movimientos</Tab>
+        </TabList>
+        <TabPanels>
+          {/* Inventory Tab */}
+          <TabPanel>
+            <Grid numItemsMd={2} numItemsLg={4} className="gap-6 mt-6">
+              {/* KPI Cards */}
+              <Card decoration="top" decorationColor="blue">
+                <Flex justifyContent="start" className="space-x-4">
+                  <Icon icon={Cylinder} size="xl" color="blue" />
+                  <div>
+                    <Text>Total Cilindros</Text>
+                    <Metric>8,436</Metric>
+                    <Flex justifyContent="start" className="mt-2">
+                      <Badge color="blue" icon={ArrowUpRight}>
+                        +2.5% vs anterior
+                      </Badge>
+                    </Flex>
+                  </div>
+                </Flex>
+              </Card>
+              <Card decoration="top" decorationColor="emerald">
+                <Flex justifyContent="start" className="space-x-4">
+                  <Icon icon={Clock} size="xl" color="emerald" />
+                  <div>
+                    <Text>Última Actualización</Text>
+                    <Metric>4h atrás</Metric>
+                    <Text className="mt-2">28 Feb, 08:45 AM</Text>
+                  </div>
+                </Flex>
+              </Card>
+              <Card decoration="top" decorationColor="amber">
+                <Flex justifyContent="start" className="space-x-4">
+                  <Icon icon={PieChart} size="xl" color="amber" />
+                  <div>
+                    <Text>Diferencia Físico vs SAP</Text>
+                    <Metric>-2.1%</Metric>
+                    <Flex justifyContent="start" className="mt-2">
+                      <Badge color="amber" icon={ArrowDownRight}>
+                        Mejora vs mes anterior
+                      </Badge>
+                    </Flex>
+                  </div>
+                </Flex>
+              </Card>
+              <Card decoration="top" decorationColor="indigo">
+                <Flex justifyContent="start" className="space-x-4">
+                  <Icon icon={Warehouse} size="xl" color="indigo" />
+                  <div>
+                    <Text>Plantas Activas</Text>
+                    <Metric>7</Metric>
+                    <Text className="mt-2">100% Datos Sincronizados</Text>
+                  </div>
+                </Flex>
+              </Card>
+            </Grid>
+
+            <Grid numItemsMd={1} numItemsLg={2} className="gap-6 mt-6">
+              <Card>
+                <Title>Comparativo Inventario Físico vs SAP</Title>
+                <AreaChart
+                  className="h-80 mt-4"
+                  data={inventoryData}
+                  index="date"
+                  categories={["Real", "SAP"]}
+                  colors={["indigo", "cyan"]}
+                  showLegend={true}
+                  valueFormatter={(number) => `${number.toLocaleString()} unidades`}
+                />
+              </Card>
+              <Card>
+                <Title>Estado de Cilindros</Title>
+                <DonutChart
+                  className="h-80 mt-4"
+                  data={cylinderStatusData}
+                  category="value"
+                  index="name"
+                  colors={["emerald", "amber", "rose"]}
+                  showAnimation={true}
+                  valueFormatter={(number) => `${number.toLocaleString()} unidades`}
+                />
+              </Card>
+            </Grid>
+
+            <Grid numItemsMd={1} numItemsLg={2} className="gap-6 mt-6">
+              <Card>
+                <Title>Distribución por Planta</Title>
+                <BarChart
+                  className="h-80 mt-4"
+                  data={plantData}
+                  index="name"
+                  categories={["value"]}
+                  colors={["blue"]}
+                  valueFormatter={(number) => `${number.toLocaleString()} unidades`}
+                  showLegend={false}
+                />
+              </Card>
+              <Card>
+                <Title>Detalle de Stock por Planta</Title>
+                <Table className="mt-4">
+                  <TableHead>
+                    <TableRow>
+                      <TableHeaderCell>Planta</TableHeaderCell>
+                      <TableHeaderCell>Stock Real</TableHeaderCell>
+                      <TableHeaderCell>Stock SAP</TableHeaderCell>
+                      <TableHeaderCell>Diferencia</TableHeaderCell>
+                      <TableHeaderCell>% del Total</TableHeaderCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {plantData.map((item) => (
+                      <TableRow key={item.name}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.value}</TableCell>
+                        <TableCell>{Math.round(item.value * 0.98)}</TableCell>
+                        <TableCell>
+                          <Badge color={item.value - Math.round(item.value * 0.98) > 0 ? "red" : "emerald"}>
+                            {item.value - Math.round(item.value * 0.98)}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>{item.percentage}%</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </Card>
+            </Grid>
+          </TabPanel>
+
+          {/* KPIs Tab */}
+          <TabPanel>
+            <Grid numItemsMd={2} numItemsLg={4} className="gap-6 mt-6">
+              {kpiData.map((kpi) => (
+                <Card key={kpi.title}>
+                  <Text>{kpi.title}</Text>
+                  <Metric>{kpi.value}</Metric>
+                  <Flex justifyContent="start" className="mt-2">
+                    <Badge color={kpi.status === "increase" ? "emerald" : "red"} icon={kpi.status === "increase" ? ArrowUpRight : ArrowDownRight}>
+                      {kpi.change}
+                    </Badge>
+                    <Text>{kpi.description}</Text>
+                  </Flex>
+                </Card>
+              ))}
+            </Grid>
+
+            <Grid numItemsMd={1} numItemsLg={2} className="gap-6 mt-6">
+              <Card>
+                <Title>Eficiencia del Proceso de Envasado (%)</Title>
+                <AreaChart
+                  className="h-80 mt-4"
+                  data={[
+                    { date: "Ene", Eficiencia: 78 },
+                    { date: "Feb", Eficiencia: 82 },
+                    { date: "Mar", Eficiencia: 85 },
+                    { date: "Abr", Eficiencia: 87 },
+                    { date: "May", Eficiencia: 84 },
+                    { date: "Jun", Eficiencia: 88 },
+                  ]}
+                  index="date"
+                  categories={["Eficiencia"]}
+                  colors={["emerald"]}
+                  valueFormatter={(value) => `${value}%`}
+                  showLegend={false}
+                  showAnimation={true}
+                />
+              </Card>
+              <Card>
+                <Title>Rendimiento del Carrusel (cilindros/hora)</Title>
+                <BarChart
+                  className="h-80 mt-4"
+                  data={[
+                    { date: "Ene", Rendimiento: 156 },
+                    { date: "Feb", Rendimiento: 162 },
+                    { date: "Mar", Rendimiento: 165 },
+                    { date: "Abr", Rendimiento: 168 },
+                    { date: "May", Rendimiento: 172 },
+                    { date: "Jun", Rendimiento: 178 },
+                  ]}
+                  index="date"
+                  categories={["Rendimiento"]}
+                  colors={["blue"]}
+                  valueFormatter={(value) => `${value} cil/h`}
+                  showLegend={false}
+                />
+              </Card>
+            </Grid>
+
+            <Grid numItemsMd={1} className="gap-6 mt-6">
+              <Card>
+                <Title>Detenciones por Mantenimiento</Title>
+                <Table className="mt-4">
+                  <TableHead>
+                    <TableRow>
+                      <TableHeaderCell>Planta</TableHeaderCell>
+                      <TableHeaderCell>Motivo</TableHeaderCell>
+                      <TableHeaderCell>Duración</TableHeaderCell>
+                      <TableHeaderCell>Impacto</TableHeaderCell>
+                      <TableHeaderCell>Estado</TableHeaderCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>Maipú</TableCell>
+                      <TableCell>Mantenimiento Preventivo</TableCell>
+                      <TableCell>2h 15m</TableCell>
+                      <TableCell>Bajo</TableCell>
+                      <TableCell><Badge color="emerald">Completado</Badge></TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Belloto</TableCell>
+                      <TableCell>Falla Sistema Clasificación</TableCell>
+                      <TableCell>4h 30m</TableCell>
+                      <TableCell>Medio</TableCell>
+                      <TableCell><Badge color="emerald">Completado</Badge></TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Talca</TableCell>
+                      <TableCell>Calibración Sensores</TableCell>
+                      <TableCell>1h 45m</TableCell>
+                      <TableCell>Bajo</TableCell>
+                      <TableCell><Badge color="amber">En Proceso</Badge></TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Mejillones</TableCell>
+                      <TableCell>Cambio Componentes</TableCell>
+                      <TableCell>3h 20m</TableCell>
+                      <TableCell>Alto</TableCell>
+                      <TableCell><Badge color="red">Programado</Badge></TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </Card>
+            </Grid>
+          </TabPanel>
+
+          {/* Projections Tab */}
+          <TabPanel>
+            <Grid numItemsMd={2} numItemsLg={3} className="gap-6 mt-6">
+              <Card>
+                <Title>Proyección de Stock (30 días)</Title>
+                <Text>Basado en tendencia actual de consumo</Text>
+                <AreaChart
+                  className="h-80 mt-4"
+                  data={[
+                    { date: "Día 1", Stock: 8436 },
+                    { date: "Día 5", Stock: 8250 },
+                    { date: "Día 10", Stock: 8100 },
+                    { date: "Día 15", Stock: 7980 },
+                    { date: "Día 20", Stock: 7820 },
+                    { date: "Día 25", Stock: 7700 },
+                    { date: "Día 30", Stock: 7550 },
+                  ]}
+                  index="date"
+                  categories={["Stock"]}
+                  colors={["indigo"]}
+                  valueFormatter={(value) => `${value} unidades`}
+                  showLegend={false}
+                />
+              </Card>
+              <Card>
+                <Title>Proyección de Producción</Title>
+                <Text>Basado en rendimiento actual</Text>
+                <BarChart
+                  className="h-80 mt-4"
+                  data={[
+                    { semana: "Sem 1", Produccion: 3650 },
+                    { semana: "Sem 2", Produccion: 3700 },
+                    { semana: "Sem 3", Produccion: 3720 },
+                    { semana: "Sem 4", Produccion: 3680 },
+                  ]}
+                  index="semana"
+                  categories={["Produccion"]}
+                  colors={["emerald"]}
+                  valueFormatter={(value) => `${value} unidades`}
+                  showLegend={false}
+                />
+              </Card>
+              <Card>
+                <Title>Proyección vs Real</Title>
+                <Text>Últimos 3 meses</Text>
+                <BarChart
+                  className="h-80 mt-4"
+                  data={[
+                    { mes: "Abril", Proyectado: 14500, Real: 14320 },
+                    { mes: "Mayo", Proyectado: 14800, Real: 14650 },
+                    { mes: "Junio", Proyectado: 15100, Real: 15200 },
+                  ]}
+                  index="mes"
+                  categories={["Proyectado", "Real"]}
+                  colors={["amber", "emerald"]}
+                  valueFormatter={(value) => `${value} unidades`}
+                />
+              </Card>
+            </Grid>
+
+            <Grid numItemsMd={1} className="gap-6 mt-6">
+              <Card>
+                <Title>Brechas Masa Real vs Óptima</Title>
+                <Table className="mt-4">
+                  <TableHead>
+                    <TableRow>
+                      <TableHeaderCell>Planta</TableHeaderCell>
+                      <TableHeaderCell>Masa Real</TableHeaderCell>
+                      <TableHeaderCell>Masa Óptima</TableHeaderCell>
+                      <TableHeaderCell>Brecha</TableHeaderCell>
+                      <TableHeaderCell>Estado</TableHeaderCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>Maipú</TableCell>
+                      <TableCell>1045 unidades</TableCell>
+                      <TableCell>1100 unidades</TableCell>
+                      <TableCell>-55 unidades</TableCell>
+                      <TableCell>
+                        <ProgressBar value={95} color="amber" className="mt-2" />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Mejillones</TableCell>
+                      <TableCell>756 unidades</TableCell>
+                      <TableCell>750 unidades</TableCell>
+                      <TableCell>+6 unidades</TableCell>
+                      <TableCell>
+                        <ProgressBar value={101} color="emerald" className="mt-2" />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Belloto</TableCell>
+                      <TableCell>541 unidades</TableCell>
+                      <TableCell>600 unidades</TableCell>
+                      <TableCell>-59 unidades</TableCell>
+                      <TableCell>
+                        <ProgressBar value={90} color="amber" className="mt-2" />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Talca</TableCell>
+                      <TableCell>452 unidades</TableCell>
+                      <TableCell>500 unidades</TableCell>
+                      <TableCell>-48 unidades</TableCell>
+                      <TableCell>
+                        <ProgressBar value={90} color="amber" className="mt-2" />
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </Card>
+            </Grid>
+          </TabPanel>
+
+          {/* Movements Tab */}
+          <TabPanel>
+            <Grid numItemsMd={1} numItemsLg={2} className="gap-6 mt-6">
+              <Card>
+                <Title>Movimientos por Tipo</Title>
+                <DonutChart
+                  className="h-80 mt-4"
+                  data={[
+                    { type: "Despacho", value: 2450 },
+                    { type: "Producción", value: 3680 },
+                    { type: "Mantenimiento", value: 580 },
+                    { type: "Devoluciones", value: 1250 },
+                  ]}
+                  category="value"
+                  index="type"
+                  colors={["blue", "emerald", "amber", "indigo"]}
+                  valueFormatter={(value) => `${value} unidades`}
+                />
+              </Card>
+              <Card>
+                <Title>Características de Movimientos</Title>
+                <BarChart
+                  className="h-80 mt-4"
+                  data={[
+                    { dia: "Lunes", movimientos: 124 },
+                    { dia: "Martes", movimientos: 142 },
+                    { dia: "Miércoles", movimientos: 158 },
+                    { dia: "Jueves", movimientos: 165 },
+                    { dia: "Viernes", movimientos: 172 },
+                    { dia: "Sábado", movimientos: 105 },
+                    { dia: "Domingo", movimientos: 45 },
+                  ]}
+                  index="dia"
+                  categories={["movimientos"]}
+                  colors={["indigo"]}
+                  valueFormatter={(value) => `${value} mov.`}
+                  showLegend={false}
+                />
+              </Card>
+            </Grid>
+
+            <Grid numItemsMd={1} className="gap-6 mt-6">
+              <Card>
+                <Title>Despacho a Distribuidores</Title>
+                <Table className="mt-4">
+                  <TableHead>
+                    <TableRow>
+                      <TableHeaderCell>Distribuidor</TableHeaderCell>
+                      <TableHeaderCell>Cantidad</TableHeaderCell>
+                      <TableHeaderCell>Fecha Despacho</TableHeaderCell>
+                      <TableHeaderCell>Estado</TableHeaderCell>
+                      <TableHeaderCell>Planta Origen</TableHeaderCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>Distribuidor A</TableCell>
+                      <TableCell>245 unidades</TableCell>
+                      <TableCell>25 Feb 2025</TableCell>
+                      <TableCell><Badge color="emerald">Completado</Badge></TableCell>
+                      <TableCell>Maipú</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Distribuidor B</TableCell>
+                      <TableCell>180 unidades</TableCell>
+                      <TableCell>26 Feb 2025</TableCell>
+                      <TableCell><Badge color="emerald">Completado</Badge></TableCell>
+                      <TableCell>Belloto</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Distribuidor C</TableCell>
+                      <TableCell>320 unidades</TableCell>
+                      <TableCell>27 Feb 2025</TableCell>
+                      <TableCell><Badge color="amber">En Tránsito</Badge></TableCell>
+                      <TableCell>Mejillones</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Distribuidor D</TableCell>
+                      <TableCell>150 unidades</TableCell>
+                      <TableCell>28 Feb 2025</TableCell>
+                      <TableCell><Badge color="blue">Programado</Badge></TableCell>
+                      <TableCell>Talca</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </Card>
+            </Grid>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </div>
+  );
+};
+
+export default OperationsDashboard;
