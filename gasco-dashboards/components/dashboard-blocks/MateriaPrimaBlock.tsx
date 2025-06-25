@@ -1,120 +1,139 @@
 import React from "react";
-import { Card, Flex, Title, Text, Badge } from "@tremor/react";
-import { DonutChart } from "@tremor/react";
-import { Radar } from "react-chartjs-2";
-import { DataTable } from "../data-table";
-import { StockDifferenceTable } from "../StockDifferenceTable";
-import KpiCard from "./KpiCard";
-import { Chart, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from "chart.js";
-Chart.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
+import {
+  Card,
+  Flex,
+  Title,
+  Text,
+  Badge,
+  Grid,
+  BarChart,
+  LineChart,
+  DonutChart,
+  Table,
+  TableHead,
+  TableRow,
+  TableHeaderCell,
+  TableBody,
+  TableCell,
+  Button,
+  Select,
+  SelectItem,
+} from "@tremor/react";
+import { theme } from "@/lib/theme";
 
-// Datos de ejemplo para las tarjetas KPI (puedes reemplazar por props o datos reales)
-const kpis = [
-  {
-    title: "Stock Total",
-    value: "3.150",
-    unit: "ton",
-    trend: "+2.1%",
-    trendType: "up",
-    status: "Óptimo",
-    statusColor: "blue" as "blue",
-    borderColor: "blue",
-    miniChartData: [
-      { label: "Ene", value: 8 },
-      { label: "Feb", value: 12 },
-      { label: "Mar", value: 15 },
-    ],
-  },
-  {
-    title: "Ocupación",
-    value: "71",
-    unit: "%",
-    trend: "+1.5%",
-    trendType: "up" as "up",
-    status: "Óptimo",
-    statusColor: "blue" as "blue",
-    borderColor: "cyan",
-    miniChartData: [
-      { label: "Ene", value: 7 },
-      { label: "Feb", value: 10 },
-      { label: "Mar", value: 13 },
-    ],
-    circularPercent: 71,
-  },
+// Datos de ejemplo actualizados según el diseño de Gasco
+const stockData = [
+  { fecha: "2024-01", propano: 1200, butano: 800, mezcla: 950 },
+  { fecha: "2024-02", propano: 1150, butano: 850, mezcla: 900 },
+  { fecha: "2024-03", propano: 1300, butano: 750, mezcla: 1000 },
+  { fecha: "2024-04", propano: 1250, butano: 820, mezcla: 980 },
 ];
 
-const donutData = [
-  { name: "GLP", value: 700 },
-  { name: "Butano", value: 300 },
-  { name: "Propano", value: 200 },
+const stockActual = [
+  { producto: "Propano SC", stock: 1200, minimo: 800, estado: "Normal" },
+  { producto: "Butano", stock: 800, minimo: 600, estado: "Precaución" },
+  { producto: "Mezcla", stock: 950, minimo: 1000, estado: "Crítico" },
 ];
 
-const radarData = {
-  labels: ["GLP", "Butano", "Propano"],
-  datasets: [
-    {
-      label: "Stock",
-      data: [700, 300, 200],
-      backgroundColor: "rgba(34, 197, 94, 0.2)",
-      borderColor: "rgba(34, 197, 94, 1)",
-      borderWidth: 2,
-    },
-    {
-      label: "Ocupación",
-      data: [90, 95, 85],
-      backgroundColor: "rgba(59, 130, 246, 0.2)",
-      borderColor: "rgba(59, 130, 246, 1)",
-      borderWidth: 2,
-    },
-  ],
-};
-
-const columns = [
-  { key: "producto", label: "Producto", align: "left" as const },
-  { key: "sgp", label: "SGP", align: "right" as const },
-  { key: "sap", label: "SAP", align: "right" as const },
-  { key: "diferencia", label: "Diferencia", align: "right" as const },
-];
-const data = [
-  { producto: "GLP", sgp: 700, sap: 690, diferencia: 10 },
-  { producto: "Butano", sgp: 300, sap: 295, diferencia: 5 },
-  { producto: "Propano", sgp: 200, sap: 165, diferencia: 35 },
+const distribucionData = [
+  { producto: "Propano SC", toneladas: 1200 },
+  { producto: "Butano", toneladas: 800 },
+  { producto: "Mezcla", toneladas: 950 },
 ];
 
 export default function MateriaPrimaBlock() {
   return (
-    <Card className="mb-10 p-6 bg-white shadow-lg rounded-xl">
-      <Flex className="justify-between items-center mb-4">
-        <Title className="text-2xl font-bold text-[#0B54A3]">Materia Prima</Title>
-        <Badge color="blue">Actualizado</Badge>
-      </Flex>
-      {/* Grid de tarjetas KPI */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mb-6">
-        {kpis.map((kpi, idx) => (
-          <KpiCard
-            key={kpi.title}
-            {...kpi}
-            trendType={kpi.trendType as "up" | "down"}
-            statusColor={kpi.statusColor as "blue" | "green" | "yellow" | "red"}
-            onDetails={() => alert(`Ver más de ${kpi.title}`)}
-          />
-        ))}
+    <Card className="p-6 bg-white shadow-lg rounded-xl">
+      {/* Header con título y controles */}
+      <div className="flex justify-between items-center mb-6">
+        <Title className="text-2xl font-bold text-[#0B54A3]">Dashboard Materia Prima</Title>
+        <div className="flex gap-4">
+          <select className="px-3 py-2 border rounded-lg">
+            <option>Última Semana</option>
+            <option>Último Mes</option>
+            <option>Último Año</option>
+          </select>
+          <Button size="xs">Exportar</Button>
+        </div>
       </div>
-      <Flex className="gap-8 flex-wrap mb-8">
-        <div className="w-72">
-          <Text className="mb-2 font-semibold">Distribución por producto</Text>
-          <DonutChart data={donutData} category="value" index="name" colors={["blue", "green", "yellow"]} />
-        </div>
-        <div className="w-96">
-          <Text className="mb-2 font-semibold">Radar Stock vs Ocupación</Text>
-          <Radar data={radarData} options={{ responsive: true, plugins: { legend: { position: "top" } } }} />
-        </div>
-      </Flex>
-      <Text className="font-semibold mb-2">Diferencias SGP/SAP por producto</Text>
-      <DataTable title="Diferencias SGP/SAP por producto" columns={columns} data={data} />
-      <div className="mt-6">
-        <Text className="font-semibold mb-2">Detalle avanzado</Text>
-        <StockDifferenceTable title="Detalle avanzado" data={data.map(row => ({ name: row.producto, sgp: row.sgp, sap: row.sap }))} />
+
+      {/* KPI Cards */}
+      <Grid numItems={1} numItemsMd={3} className="gap-6 mb-6">
+        <Card className="bg-blue-50">
+          <Text>Stock Propano</Text>
+          <Text className="text-2xl font-bold">1.200 TON</Text>
+          <Badge color="green">Normal</Badge>
+        </Card>
+        <Card className="bg-yellow-50">
+          <Text>Stock Butano</Text>
+          <Text className="text-2xl font-bold">800 TON</Text>
+          <Badge color="yellow">Precaución</Badge>
+        </Card>
+        <Card className="bg-red-50">
+          <Text>Stock Mezcla</Text>
+          <Text className="text-2xl font-bold">950 TON</Text>
+          <Badge color="red">Crítico</Badge>
+        </Card>
+      </Grid>
+
+      {/* Gráficos y Tablas */}
+      <div className="space-y-6">
+        <Card>
+          <Title className="mb-4">Evolución de Stock</Title>
+          <LineChart
+            data={stockData}
+            index="fecha"
+            categories={["propano", "butano", "mezcla"]}
+            colors={["blue", "yellow", "red"]}
+            yAxisWidth={40}
+            className="h-72"
+          />
+        </Card>
+
+        <Grid numItems={1} numItemsMd={2} className="gap-6">
+          <Card>
+            <Title className="mb-4">Distribución Actual</Title>
+            <DonutChart
+              data={distribucionData}
+              category="toneladas"
+              index="producto"
+              colors={["blue", "yellow", "red"]}
+              className="h-64"
+            />
+          </Card>
+          <Card>
+            <Title className="mb-4">Detalle por Producto</Title>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableHeaderCell>Producto</TableHeaderCell>
+                  <TableHeaderCell>Stock Actual</TableHeaderCell>
+                  <TableHeaderCell>Stock Mínimo</TableHeaderCell>
+                  <TableHeaderCell>Estado</TableHeaderCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {stockActual.map((row) => (
+                  <TableRow key={row.producto}>
+                    <TableCell>{row.producto}</TableCell>
+                    <TableCell>{row.stock} TON</TableCell>
+                    <TableCell>{row.minimo} TON</TableCell>
+                    <TableCell>
+                      <Badge 
+                        color={
+                          row.estado === "Normal" ? "green" : 
+                          row.estado === "Precaución" ? "yellow" : "red"
+                        }
+                      >
+                        {row.estado}
+                      </Badge>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Card>
+        </Grid>
       </div>
     </Card>
   );
