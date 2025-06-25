@@ -47,6 +47,36 @@ import {
 import { Button } from "@/components/ui/GascoButton";
 import { GascoSidebar } from "@/components/ui/GascoSidebar";
 
+// Componentes base para CompendioSesiones
+export const Section = ({ title, children }: { title: string; children: React.ReactNode }) => {
+  return (
+    <div className="space-y-6">
+      <Title>{title}</Title>
+      {children}
+    </div>
+  );
+};
+
+export const VersionBlock = ({ 
+  version, 
+  description, 
+  children 
+}: { 
+  version: string; 
+  description: string; 
+  children: React.ReactNode;
+}) => {
+  return (
+    <Card>
+      <div className="space-y-2">
+        <Title className="text-lg">{version}</Title>
+        <Text className="text-gray-600">{description}</Text>
+        {children}
+      </div>
+    </Card>
+  );
+};
+
 // Datos de ejemplo para los gráficos
 const stockData = [
   { fecha: "2024-01", propano: 1200, butano: 800, mezcla: 950 },
